@@ -1,4 +1,6 @@
 <?php
+require_once('settings.php');
+
 class Config {
 	private $debug;
 	
@@ -29,6 +31,18 @@ class Config {
 			return true;
 		}
 		return false;
+	}
+	
+	public function database()
+	{
+		$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_DTBS);
+		
+		if (mysqli_connect_error())
+		{
+			die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+		}
+		
+		return $mysqli;
 	}
 }
 ?>
