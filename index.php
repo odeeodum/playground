@@ -11,8 +11,9 @@
 	// Load Json class
 	$jsonObject = new Json();
 
+	echo $jsonObject->json;
+	exit;
 	$json = json_decode($jsonObject->json);
-	$helper->show($json);
 	
 	processJSON($json);
 
